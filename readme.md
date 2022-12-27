@@ -1,6 +1,32 @@
 # archlive-macbook 
+
+   This is really just a mkarchiso project. It started as a live install
+   for a macbook pro. But its really handy to have your own custom live install.
+   So I'm adding in all the permutations I've needed for the computers I have.
+   This one live iso, can boot my chromebook, my macbook pro, my NUC, and my
+   Wacom mobile studio pro.  mostly the kernel parameters are the only real
+   problem.
    
-   This is about installing Arch Linux on a 
+   Mostly thats a few kernel parameters and some stuff from the AUR.
+   plus my own Arch install script.
+   
+   There is a custom repo to go with this, it really only has B43-firmware, 
+   B43-fwcutter and Yay.  B43 is the network driver needed for the macbook pro.
+   
+## kernel boot parameters.
+   All these computers just needed some different kernel parameters to get up and
+   running. I've added new grub menu items for the moment. But should let make take
+   care of that automatically.
+   
+## The repo.
+   That is a separate project that we just need to point at from here. 
+   
+   I think it would be nice to make that repo part of the Arch-Setup system
+   so that the repo can be built and deployed.
+   
+## 2012 macbook pro.
+
+   This started with the process of installing Arch Linux on a 
    17" macbook pro 8,2 : late 2011, flawed external video radeon.
    The 15 and 13" are less problematic for lack of the AMD radeon gpu.
    
@@ -17,7 +43,7 @@ installed, it booted and installed.  From then on the only real problems were
 hibernation and SSH always timing out. Also the fragility of the GPU was a concern,
 as well as being one of the possible problems.
   
-## The problems/steps in order
+### The problems/steps in order
    - make regular Arch Live USB
    - Hang on boot.     
      - Add _nomodeset radeon.modeset=0_ to kernel parameters
@@ -79,7 +105,7 @@ as well as being one of the possible problems.
    new laptops.  I might do that just to see, it used to have 2 drives.
    
    
-## Uncertainties
+# Uncertainties with this Mac.
    I do not know if I actually needed to turn off my GPU yet. I trust
    that it would die at some point so it seemed reasonable to do.
    It did also seem to be a source of trouble with hibernation, but that 
