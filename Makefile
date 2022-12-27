@@ -1,6 +1,7 @@
 all: iso
 
-iso: archiso -v -w /tmp/archiso-tmp /archlive
+iso: 
+	mkarchiso -v -w /tmp/archiso-tmp archlive
 
 # Archiso comes with two profiles, releng and baseline.
 
@@ -14,11 +15,15 @@ iso: archiso -v -w /tmp/archiso-tmp /archlive
 fresh-releng: cp -r /usr/share/archiso/configs/releng/ archlive
 fresh-baseline: cp -r /usr/share/archiso/configs/baseline/ archlive
 
-inject-code: cp arch-install archlive/airootfs/ \
+inject-code: cp ~/Arch-Setup/install-arch archlive/airootfs/ \
              chmod a+x archlive/airootfs/arch-install
 
-macbook-kernel-params := nomodeset radeon.modeset=0 ....
+macbook-kernel-params := nomodeset radeon.modeset=0 
+mobile-studio-pro-kernel-params := nomodeset AHCI=0
+hp-chromebook-kernel-params := nomodeset
 
+ddcmd:
+    echo "sudo dd if=out/xxxx.iso of=/dev/sdX bs=1M"
 
 # menuentry "Arch Linux install medium (x86_64, UEFI)" --class arch --class gnu-linux --class gnu --class os --id 'archlinux' {
 #     set gfxpayload=keep
