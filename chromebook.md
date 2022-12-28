@@ -1,10 +1,38 @@
 
-# Barebones linux on a chromebook with a testing and flashing script for a Particle.io device.
+# Arch on a chromebook.
+
+Since the original install in 2019 that follows below, as of
+December 2022 I have updated and installed Xorg, Xmonad and Exwm.
+
+I installed the following video drivers 
+
+ - xf86-video-ati
+ - xf86-video-amdgpu
+ - xf86-video-fbdev
+ - xf86-video-vesa
+
+and miraculously in 2022 it is all working __without kernel parameters added__.  
+I believe that it is using the fbdev driver but it took a minute to figure out
+how to make Xorg happy. It could be using the ati driver I think.
+Perhaps there are still some things to do there to improve it. 
+
+It boots, has working wifi and Xwindows. 
+ 
+I have not tried enabling hibernation, and I suspect
+there are some problems to be found with ACPI. So it may not work anyway.
+storage is precious on this machine, so adding a swap size big enough seems
+like it might not be a good trade. It boots really fast, storage is all EMMC.
+
+It is a reasonable machine, not terribly slow. Not much memory or storage.
+Its a chromebook.
+
+
+# Barebones linux 
 
 This was done to an HP chromebook 14-db0080nr
 
 This chromebook has a broken bios like many of the AMD machines from this time period.
-Changes made by google apparently break the ability to boot into another os even though 
+Changes made by Google apparently break the ability to boot into another OS even though 
 the loader is there. As far as I know the only way to get another OS on this machine is 
 to reflash the bios.
 
@@ -16,7 +44,7 @@ For the most part, These instructions should work for any chromebook.
  specific steps will follow below. 
 
  * Broken Bios, 
-   Fix: MrChromebox firmware-util.sh can replace with Seabios.
+   Fix: MrChromebox firmware-util.sh can replace it with Seabios.
  * Write protect via CR50. 
    Fix: Requires a SuzyQ cable.
  * nomodeset must be on the boot options. 
