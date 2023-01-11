@@ -7,7 +7,6 @@ base
 bind
 brltty
 broadcom-wl
-b43-firmware
 yay
 btrfs-progs
 clonezilla

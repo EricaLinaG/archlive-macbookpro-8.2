@@ -14,12 +14,31 @@
    Wacom mobile studio pro.  Mostly the kernel parameters are the only real
    problem.
    
-   Mostly thats a few kernel parameters and some stuff from the AUR.
-   plus my own Arch install script which I have used for 
+   The last time I tried this, I didnt get a boot menu when there should have
+   been.  It still worked on the macbook, but ideally it would be good
+   to get the boot menu so the kernel parameters can be chosen.
    
-   I have a custom Arch Repo to go with this, it really only has B43-firmware, 
-   B43-fwcutter and Yay.  B43 is the network driver needed for the macbook pro.
+   Mostly thats a few kernel parameters and in the case of the macbook, 
+   some stuff from the AUR.
+
+   B43 is the problematic network driver needed for the macbook pro.
+   Without the b43 packages, there will be no wifi. So they will need to be 
+   installed before reboot.
+
+   I've created a custom Arch Repo to go with this, it really only has `B43-firmware` 
+   and `Yay`.  This allows the live USB to have what it needs.
+   It does not, however, install them on the target automatically.
+
+   It would be nice to add my arch-pkgs repo as well.  Streamline and simplify.
+
+   I've added `b43-fwcutter`, `networkmanager`, `dialog`, `git` and a few other packages to make life easier on the live-usb. My `install-arch` script lives in / (root).
    
+   My intention is to make all this more automatic, as it currently requires a bit
+   of manual effort to install these on the installation target. Even with
+   them already on the live USB.  I need to teach the install, ie. __pacstrap__, to
+   use the custom repo on the live usb.  This is complicated because `b43-firmware` is
+   in the _AUR_, which cannot be used during the install.
+
    
 ## kernel boot parameters
    All these computers just needed some different kernel parameters to get up and
